@@ -25,32 +25,26 @@
     text-align: center;
     padding: 50px 60px 70px;
     background: #fff;
-    
-    border-radius:50px ;
-
+    border-radius:50px;
 }
 
  h1
 {
     font-size:30px ;
     margin-bottom: 60px;
-    position:relative ;
-    color:#3c00a0 ;
+    position:relative;
+    color:#3c00a0;
 }
-
-
-button:hover
-{
-    background:#fff;
-    color: #3c00a0;
-
-}
-
 
 .detail i
 {
     margin-left: 15px;
-    color:black;0
+    color:black;
+}
+
+.detail
+{
+    height: 280px;
 }
 
 form p
@@ -96,9 +90,10 @@ input
     width:100% ;
     display:flex ;
     justify-content:space-between ;
+    animation: normal;
 }
 
-.btn-field button
+button
 {
     flex-basis: 48%;
     color: #fff ;
@@ -109,16 +104,11 @@ input
     cursor: pointer;
     outline:0 ;
     transition: 2s;
+    text-align: center;
 }
 
-.detail
+button:hover
 {
-    height: 280px;
-   
-}
-
-.btn-field button.disable
-{
-    background: #eaeaea; 
-    color: #555;
+    background:#fff;
+    color: #3c00a0;
 }

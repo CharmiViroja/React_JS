@@ -10,60 +10,93 @@
 <body>
     <div class="container">
         <div class="fb">
-        <h1 id="title"> SIGN UP </h1>
-
+        <h1> SIGN UP </h1>
 
             <form>
                 <div class="detail">
 
-                    <div class="box" id="namefield">
+                    <div class="box">
                         <i class="fa fa-user-circle"></i>
-                        <input type="text" placeholder="NAME">
+                        <input type="text" placeholder="NAME" name="name" id="name" onblur="return ValidData(this,'nameError')" onkeypress="NameValid(this,'eError') ">
+                        <span id="nameError"></span>
+                        <span id="eError"></span>
                     </div>
 
                     <div class="box">
                         <i class="fa fa-envelope"></i>
-                        <input type="text" placeholder="EMAIL">
+                        <input type="text" placeholder="EMAIL" name="email" id="email" onblur="return ValidData(this,'emailError')">
+                        <span id="emailError"></span>
+                        <span id="eError"></span>
                     </div>
 
                     <div class="box">
                         <i class="fa fa-lock"></i>
-                        <input type="text" placeholder="PASSWORD">
+                        <input type="text" placeholder="PASSWORD" name="password" id="pwd" onblur="return ValidData(this,'pwdError')">
+                        <span id="pwdError"></span>
+                        <span id="eError"></span>
                     </div>
 
                     <div>
-                        <p> Forget password ? <a href="#"> CLICK HERE! </a>  </p>
+                        <p> Forget password ? <a href="#"> CLICK HERE!</a></p>
                     </div>
                     <br>
                     <div class="btn-field">
-                        <button type="button" id="signupbtn"> SIGN UP </button>
-                        <button type="button" id="signinbtn"> SIGN IN </button>
+                        <button> SIGN UP </button>
+                        <button> SIGN IN </button>
                     </div>
-
                 </div>    
             </form>
-    </div>
+        </div>
 </div>
 
 <script>
-let signupbtn = document.getElementById("signupbtn");
-let signinbtn = document.getElementById("signinbtn");
-let namefield = document.getElementById("namefield");
-let title = document.getElementById("title");
 
-signupbtn.onclick =function(){
-    namefield.style.maxHeight = "0";
-    title.innerHTML ="SIGN IN";
-    signupbtn.classList.add("disable");
-    signinbtn.classList.remove("disable");
-}
+function ValidData(e,spnid)
+    {
+        let name = document.getElementById('name').value;
+        if(e.value == " ")
+        {
+            var a = document.getElementById(spnid);
+            document.getElementById(spnid).innerHTML = "Please enter data!";
+            document.getElementById(spnid).style.color ="red";
+        }
+        else
+        {
+            document.getElementById(spnid).innerHTML =" ";
+        }
+    }
+    function Namevalid(e,spnid)
+    {
+        var name = /^[a-zA-Z]+$/
+        if(name.test(e.value))
+        {
+            document.getElementById(spnid).innerHTML ="";
+            return true;
+        }
+        else
+        {
+            document.getElementById(spnid).innerHTML = " please enter only character";
+            document.getElementById(spnid).style.color="red";
+            return false;
+        }
+    }
+    function Emailvalid(e,spnid)
+    {
+        var email =/^([a-z0-9.-_])+@+([a-z.-_])+.+([a-z]{3})$/
+        if(email.test(e.value))
+        {
+            document.getElementById(spnid).innerHTML = " ";
+            return true;
+        }
+        else
+        {
+            document.getElementById(spnid).innerHTML ="please enter valid Email!";
+            document.getElementById(spnid).style.color="red";
+            return false;
+        }
+    }
 
-signinbtn.onclick =function(){
-    namefield.style.maxHeight = "60px";
-    title.innerHTML ="SIGN UP";
-    signupbtn.classList.remove("disable");
-    signinbtn.classList.add("disable");
-}
+
 </script>
 
 </body>
